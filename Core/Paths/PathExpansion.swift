@@ -44,7 +44,7 @@ public enum PathExpansion {
         }
         let head = patternParts[0]
         let tail = Array(patternParts.dropFirst())
-        guard let children = try? fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles]) else {
+        guard let children = try? fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: []) else {
             return
         }
         if head == "**" {
