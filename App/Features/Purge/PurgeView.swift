@@ -80,7 +80,6 @@ struct PurgeView: View {
             Divider()
             footer
         }
-        .navigationTitle("Project Purge")
     }
 
     private var header: some View {

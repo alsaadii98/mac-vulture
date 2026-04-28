@@ -36,6 +36,9 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
         CODE_SIGN_STYLE: Manual
         CODE_SIGN_IDENTITY: "-"
+        # Keep linker output deterministic so ad-hoc hash stays stable across rebuilds.
+        # Reduces TCC re-prompts. Real fix is Developer ID signing.
+        OTHER_LDFLAGS: "-Xlinker -no_warn_duplicate_libraries"
     dependencies:
       - package: MacVultureCore
         product: MacVultureCore

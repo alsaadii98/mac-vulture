@@ -97,7 +97,6 @@ struct AnalyzeView: View {
                     }
             }
         }
-        .navigationTitle("Disk Analyzer")
         .task { await vm.loadOverview() }
     }
 }

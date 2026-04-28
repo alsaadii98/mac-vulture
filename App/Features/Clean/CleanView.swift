@@ -22,15 +22,20 @@ final class CleanViewModel: ObservableObject {
         var paths: Set<String> { Set(items.map(\.path)) }
     }
 
+    private var categoryMeta: [String: (title: String, risk: PathCatalog.Risk)] = [:]
+    @Published var pendingCategories: Int = 0
+
     func scan(categories: [PathCatalog.Category], home: String = NSHomeDirectory()) {
         cancel()
-        groups = categories.map { CategoryGroup(id: $0.id, title: $0.title, risk: $0.risk, items: []) }
-        groupIndex = Dictionary(uniqueKeysWithValues: groups.enumerated().map { ($1.id, $0) })
+        groups.removeAll()
+        groupIndex.removeAll()
+        categoryMeta = Dictionary(uniqueKeysWithValues: categories.map { ($0.id, ($0.title, $0.risk)) })
         checked.removeAll()
         expanded.removeAll()
         lastError = nil
         lastResult = nil
         isScanning = true
+        pendingCategories = categories.count
         let scanner = GlobScanner(home: home)
         scanTask = Task { [self] in
             await withTaskGroup(of: Void.self) { group in
@@ -39,6 +44,7 @@ final class CleanViewModel: ObservableObject {
                         for await item in scanner.scan(category: cat) {
                             await self.append(item)
                         }
+                        await self.completeCategory()
                     }
                 }
             }
@@ -47,16 +53,24 @@ final class CleanViewModel: ObservableObject {
     }
 
     @MainActor private func append(_ item: ScanItem) {
-        guard let idx = groupIndex[item.categoryID] else { return }
-        groups[idx].items.append(item)
+        if let idx = groupIndex[item.categoryID] {
+            groups[idx].items.append(item)
+        } else if let meta = categoryMeta[item.categoryID] {
+            // lazy: create group only when first item arrives
+            let g = CategoryGroup(id: item.categoryID, title: meta.title, risk: meta.risk, items: [item])
+            groups.append(g)
+            groupIndex[item.categoryID] = groups.count - 1
+        }
         checked.insert(item.path)
+    }
+
+    @MainActor private func completeCategory() {
+        if pendingCategories > 0 { pendingCategories -= 1 }
     }
 
     @MainActor private func markDone() {
         isScanning = false
-        // drop empty groups for cleaner UI
-        groups = groups.filter { !$0.items.isEmpty }
-        groupIndex = Dictionary(uniqueKeysWithValues: groups.enumerated().map { ($1.id, $0) })
+        pendingCategories = 0
     }
 
     func cancel() {
@@ -152,11 +166,11 @@ struct CleanView: View {
                 .frame(minWidth: 260, idealWidth: 300)
             resultsPane
         }
-        .navigationTitle("Clean")
         .onAppear {
             if enabledCategoryIDs.isEmpty {
                 enabledCategoryIDs = Set(categories.map(\.id))
             }
+            hasFDA = TCC.hasFullDiskAccess()
         }
         .confirmationDialog(
             "Move \(vm.checked.count) item(s) to Trash?",
@@ -230,10 +244,11 @@ struct CleanView: View {
     }
 
     @AppStorage("hideTCCBanner") private var hideTCCBanner: Bool = false
+    @State private var hasFDA: Bool = TCC.hasFullDiskAccess()
 
     @ViewBuilder
     private var tccBanner: some View {
-        if !hideTCCBanner {
+        if !hideTCCBanner && !hasFDA {
             HStack(spacing: 10) {
                 Image(systemName: "lock.shield").foregroundStyle(.orange)
                 VStack(alignment: .leading, spacing: 2) {
@@ -284,7 +299,9 @@ struct CleanView: View {
 
     private var summaryBar: some View {
         HStack {
-            Text("\(vm.totalCount) items in \(vm.groups.count) categories").font(.headline)
+            Text("\(vm.totalCount) items").font(.headline)
+            Text("·").foregroundStyle(.secondary)
+            Text("\(vm.groups.count) categories with results").foregroundStyle(.secondary)
             Text("·").foregroundStyle(.secondary)
             Text("\(vm.checked.count) selected").foregroundStyle(.secondary)
             Spacer()
@@ -292,6 +309,7 @@ struct CleanView: View {
             Button("None", action: vm.clearAll).disabled(vm.checked.isEmpty)
             if vm.isScanning {
                 ProgressView().controlSize(.small)
+                Text("\(vm.pendingCategories) pending").font(.caption).foregroundStyle(.secondary)
             }
         }
         .padding([.top, .horizontal])
@@ -308,19 +326,22 @@ struct CleanView: View {
     }
 
     private var groupedList: some View {
-        List {
-            ForEach(vm.groups) { group in
-                CategorySection(
-                    group: group,
-                    expanded: vm.expanded.contains(group.id),
-                    state: vm.categoryState(group.id),
-                    onExpand: { isOpen in
-                        if isOpen { vm.expanded.insert(group.id) } else { vm.expanded.remove(group.id) }
-                    },
-                    onToggleAll: { on in vm.setCategoryChecked(group.id, on: on) },
-                    isChecked: { vm.checked.contains($0) },
-                    onToggleItem: { vm.togglePath($0) }
-                )
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                ForEach(vm.groups) { group in
+                    CategorySection(
+                        group: group,
+                        expanded: vm.expanded.contains(group.id),
+                        state: vm.categoryState(group.id),
+                        onExpand: { isOpen in
+                            if isOpen { vm.expanded.insert(group.id) } else { vm.expanded.remove(group.id) }
+                        },
+                        onToggleAll: { on in vm.setCategoryChecked(group.id, on: on) },
+                        isChecked: { vm.checked.contains($0) },
+                        onToggleItem: { vm.togglePath($0) }
+                    )
+                    Divider()
+                }
             }
         }
     }
@@ -372,48 +393,82 @@ private struct CategorySection: View {
     let onToggleItem: (String) -> Void
 
     var body: some View {
-        DisclosureGroup(
-            isExpanded: Binding(get: { expanded }, set: { onExpand($0) })
-        ) {
-            // Inner item list — only renders when expanded
-            ForEach(group.items.prefix(500)) { item in
-                ItemRow(
-                    item: item,
-                    isChecked: isChecked(item.path),
-                    onToggle: { onToggleItem(item.path) }
-                )
-            }
-            if group.items.count > 500 {
-                Text("+ \(group.items.count - 500) more (toggle category to include)")
-                    .font(.caption).foregroundStyle(.secondary)
-            }
-        } label: {
-            HStack(spacing: 10) {
-                triStateBox
-                    .onTapGesture { onToggleAll(state != .all) }
-                Image(systemName: riskIcon).foregroundStyle(riskColor)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(group.title).fontWeight(.medium)
-                    Text("\(group.items.count) items · risk: \(group.risk.rawValue)")
-                        .font(.caption2).foregroundStyle(.secondary)
+        VStack(spacing: 0) {
+            headerRow
+            if expanded {
+                Divider().padding(.leading, 56)
+                ForEach(group.items.prefix(500)) { item in
+                    ItemRow(
+                        item: item,
+                        isChecked: isChecked(item.path),
+                        onToggle: { onToggleItem(item.path) }
+                    )
+                    .padding(.leading, 40)
                 }
-                Spacer()
-                Text(ByteCountFormatter.string(fromByteCount: group.totalBytes, countStyle: .file))
-                    .monospacedDigit().font(.callout).foregroundStyle(.secondary)
+                if group.items.count > 500 {
+                    Text("+ \(group.items.count - 500) more (toggle category to include all)")
+                        .font(.caption).foregroundStyle(.secondary)
+                        .padding(.leading, 40).padding(.vertical, 4)
+                }
             }
         }
     }
 
+    private var headerRow: some View {
+        HStack(spacing: 10) {
+            // Chevron — toggles expand on tap
+            Button {
+                onExpand(!expanded)
+            } label: {
+                Image(systemName: expanded ? "chevron.down" : "chevron.right")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .frame(width: 16, height: 16)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+
+            // Tri-state checkbox — toggles select-all
+            Button {
+                onToggleAll(state != .all)
+            } label: {
+                triStateBox
+            }
+            .buttonStyle(.plain)
+
+            // Risk icon
+            Image(systemName: riskIcon).foregroundStyle(riskColor)
+
+            // Title + count
+            VStack(alignment: .leading, spacing: 2) {
+                Text(group.title).fontWeight(.medium)
+                Text("\(group.items.count) items · risk: \(group.risk.rawValue)")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }
+            Spacer()
+            Text(ByteCountFormatter.string(fromByteCount: group.totalBytes, countStyle: .file))
+                .monospacedDigit().font(.callout).foregroundStyle(.secondary)
+        }
+        .padding(.vertical, 6)
+        .padding(.horizontal, 8)
+        .contentShape(Rectangle())
+        .onTapGesture { onExpand(!expanded) }
+    }
+
     private var triStateBox: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 3)
-                .stroke(.secondary, lineWidth: 1)
-                .frame(width: 16, height: 16)
+            RoundedRectangle(cornerRadius: 4)
+                .fill(state == .all ? Color.accentColor : .clear)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(state == .none ? Color.secondary : Color.accentColor, lineWidth: 1.5)
+                )
+                .frame(width: 18, height: 18)
             switch state {
             case .all:
-                Image(systemName: "checkmark").font(.caption2.bold()).foregroundStyle(.tint)
+                Image(systemName: "checkmark").font(.caption.weight(.bold)).foregroundStyle(.white)
             case .some:
-                Rectangle().fill(.tint).frame(width: 8, height: 2)
+                Rectangle().fill(Color.accentColor).frame(width: 10, height: 2)
             case .none:
                 EmptyView()
             }
@@ -442,14 +497,38 @@ private struct ItemRow: View {
     let onToggle: () -> Void
 
     var body: some View {
-        HStack(spacing: 8) {
-            Toggle(isOn: Binding(get: { isChecked }, set: { _ in onToggle() })) { EmptyView() }
-                .toggleStyle(.checkbox)
-            Text((item.path as NSString).lastPathComponent).lineLimit(1)
+        HStack(spacing: 10) {
+            Button {
+                onToggle()
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(isChecked ? Color.accentColor : .clear)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(isChecked ? Color.accentColor : Color.secondary, lineWidth: 1.5)
+                        )
+                        .frame(width: 16, height: 16)
+                    if isChecked {
+                        Image(systemName: "checkmark").font(.caption2.weight(.bold)).foregroundStyle(.white)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text((item.path as NSString).lastPathComponent).lineLimit(1).font(.callout)
+                Text(item.path).font(.caption2.monospaced())
+                    .foregroundStyle(.secondary).lineLimit(1).truncationMode(.middle)
+            }
             Spacer()
             Text(ByteCountFormatter.string(fromByteCount: item.sizeBytes, countStyle: .file))
                 .monospacedDigit().font(.caption).foregroundStyle(.secondary)
         }
+        .padding(.vertical, 4)
+        .padding(.horizontal, 8)
+        .contentShape(Rectangle())
+        .onTapGesture { onToggle() }
         .contextMenu {
             Button("Reveal in Finder") { Reveal.inFinder(item.path) }
             Button("Add to Whitelist") { WhitelistEditor.append([item.path]) }

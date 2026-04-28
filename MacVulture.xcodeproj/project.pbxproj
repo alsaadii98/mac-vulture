@@ -8,35 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		3D0C23E1D61EB3B6C6AAD860 /* UninstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17670F6F2B73E34A62B9FFB7 /* UninstallView.swift */; };
+		4070B738BC8AFAE013A3A73E /* FooterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434E884AD2F236470663CA8 /* FooterBar.swift */; };
 		44E172654D1C0759BCF4F48E /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */; };
 		54DED472B134BCF8975E29E5 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43113BD3E9AECD70FDFC62 /* MenuBarView.swift */; };
 		69256A4B91E0E9683A76AAFE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3E01674C010F0D2754BA4 /* AppState.swift */; };
 		6E4CCECAB3894CAE33D54A47 /* PurgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF2E38877FD9AF9ED82B1AA /* PurgeView.swift */; };
 		93EDE63C0D72EAAB17A1FAEE /* MacVultureCore in Frameworks */ = {isa = PBXBuildFile; productRef = 91D555AD1C57EB5C8BE9DE64 /* MacVultureCore */; };
 		942EBE18BC3830758755253D /* CleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5AAB713F0CEBCE3B0EDD4 /* CleanView.swift */; };
-		9BBCD9AD1204542535D474B6 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */; };
+		9A4CE71E6470C56FEF1D9CC8 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999548C6C570F9D6A75F4246 /* AppIconView.swift */; };
 		A0E2561F116817757340DD71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9006F23A8BA60135DE3D42DC /* SettingsView.swift */; };
 		B2691937863E5B1D8D820D4F /* MacVultureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7F1FB7EF9CAB710D2278A /* MacVultureApp.swift */; };
 		BA7F79D06DF922FA5151C2C6 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4835B563EA5278CD093FBBAD /* Placeholder.swift */; };
+		C4786B4FFC8A539C2E612F06 /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42FEA6F5EB40EE260C9387 /* WindowAccessor.swift */; };
 		EADF02431542EA13EE55D6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F021287DD82A64B002324A /* Assets.xcassets */; };
-		EDEABC6CB8C0F3C79D8A0916 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDB1F4A84AE1937A171E18 /* StatusView.swift */; };
+		EB79B3C4CE062975AF23CFC6 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710A2D9022559DE09EC178A /* Sidebar.swift */; };
+		FB3D43436C33407F14DDC601 /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3510EACBC1E32E278CE42218 /* HeaderBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01E5AAB713F0CEBCE3B0EDD4 /* CleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanView.swift; sourceTree = "<group>"; };
 		0B43113BD3E9AECD70FDFC62 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		17670F6F2B73E34A62B9FFB7 /* UninstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallView.swift; sourceTree = "<group>"; };
+		3510EACBC1E32E278CE42218 /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
 		4835B563EA5278CD093FBBAD /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		61F021287DD82A64B002324A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7434E884AD2F236470663CA8 /* FooterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBar.swift; sourceTree = "<group>"; };
 		792832E31F430F0A847987B4 /* MacVulture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacVulture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9006F23A8BA60135DE3D42DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		999548C6C570F9D6A75F4246 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
+		BE42FEA6F5EB40EE260C9387 /* WindowAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
 		CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
-		DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		D710A2D9022559DE09EC178A /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		DCF2E38877FD9AF9ED82B1AA /* PurgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurgeView.swift; sourceTree = "<group>"; };
 		E1D7F1FB7EF9CAB710D2278A /* MacVultureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVultureApp.swift; sourceTree = "<group>"; };
 		E1F3E01674C010F0D2754BA4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E4B06E4C84121F98E09B86BB /* mac-vulture */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "mac-vulture"; path = .; sourceTree = SOURCE_ROOT; };
-		F5CDB1F4A84AE1937A171E18 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +86,9 @@
 			children = (
 				064CC72B7C05084014917915 /* Analyze */,
 				A8C63AB07B85498FC2C537F4 /* Clean */,
-				C88ED6C8B4E13E0B4CEBA6F2 /* Dashboard */,
 				9145A5A772EFBF201D07228D /* MenuBar */,
 				2364B09D79EFE60750BC6236 /* Purge */,
 				0417909B9408E550AD7E9CEA /* Settings */,
-				F359CD48F10D5B08C5FC5690 /* Status */,
 				B9D99E15E6ACA580BB8A6D54 /* Uninstall */,
 			);
 			path = Features;
@@ -131,14 +135,6 @@
 			path = Uninstall;
 			sourceTree = "<group>";
 		};
-		C88ED6C8B4E13E0B4CEBA6F2 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */,
-			);
-			path = Dashboard;
-			sourceTree = "<group>";
-		};
 		D4DC6EF810BB319893DD5617 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +150,12 @@
 		DE420D9D177F378BA88E6ED9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				999548C6C570F9D6A75F4246 /* AppIconView.swift */,
+				7434E884AD2F236470663CA8 /* FooterBar.swift */,
+				3510EACBC1E32E278CE42218 /* HeaderBar.swift */,
 				4835B563EA5278CD093FBBAD /* Placeholder.swift */,
+				D710A2D9022559DE09EC178A /* Sidebar.swift */,
+				BE42FEA6F5EB40EE260C9387 /* WindowAccessor.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -165,14 +166,6 @@
 				E4B06E4C84121F98E09B86BB /* mac-vulture */,
 			);
 			name = Packages;
-			sourceTree = "<group>";
-		};
-		F359CD48F10D5B08C5FC5690 /* Status */ = {
-			isa = PBXGroup;
-			children = (
-				F5CDB1F4A84AE1937A171E18 /* StatusView.swift */,
-			);
-			path = Status;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,16 +244,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E172654D1C0759BCF4F48E /* AnalyzeView.swift in Sources */,
+				9A4CE71E6470C56FEF1D9CC8 /* AppIconView.swift in Sources */,
 				69256A4B91E0E9683A76AAFE /* AppState.swift in Sources */,
 				942EBE18BC3830758755253D /* CleanView.swift in Sources */,
-				9BBCD9AD1204542535D474B6 /* DashboardView.swift in Sources */,
+				4070B738BC8AFAE013A3A73E /* FooterBar.swift in Sources */,
+				FB3D43436C33407F14DDC601 /* HeaderBar.swift in Sources */,
 				B2691937863E5B1D8D820D4F /* MacVultureApp.swift in Sources */,
 				54DED472B134BCF8975E29E5 /* MenuBarView.swift in Sources */,
 				BA7F79D06DF922FA5151C2C6 /* Placeholder.swift in Sources */,
 				6E4CCECAB3894CAE33D54A47 /* PurgeView.swift in Sources */,
 				A0E2561F116817757340DD71 /* SettingsView.swift in Sources */,
-				EDEABC6CB8C0F3C79D8A0916 /* StatusView.swift in Sources */,
+				EB79B3C4CE062975AF23CFC6 /* Sidebar.swift in Sources */,
 				3D0C23E1D61EB3B6C6AAD860 /* UninstallView.swift in Sources */,
+				C4786B4FFC8A539C2E612F06 /* WindowAccessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +407,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.2.0;
+				OTHER_LDFLAGS = "-Xlinker -no_warn_duplicate_libraries";
 				PRODUCT_BUNDLE_IDENTIFIER = app.macvulture.MacVulture;
 				PRODUCT_NAME = "Mac Vulture";
 				SDKROOT = macosx;
@@ -434,6 +431,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.2.0;
+				OTHER_LDFLAGS = "-Xlinker -no_warn_duplicate_libraries";
 				PRODUCT_BUNDLE_IDENTIFIER = app.macvulture.MacVulture;
 				PRODUCT_NAME = "Mac Vulture";
 				SDKROOT = macosx;

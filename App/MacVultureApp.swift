@@ -10,6 +10,13 @@ struct MacVultureApp: App {
             RootView()
                 .environmentObject(appState)
                 .frame(minWidth: 960, minHeight: 640)
+                .preferredColorScheme(.dark)
+                .background(WindowAccessor { window in
+                    window.titlebarAppearsTransparent = true
+                    window.titleVisibility = .hidden
+                    window.styleMask.insert(.fullSizeContentView)
+                    window.isMovableByWindowBackground = true
+                })
         }
         .windowResizability(.contentSize)
         .commands {
@@ -26,51 +33,52 @@ struct MacVultureApp: App {
 
 struct RootView: View {
     @EnvironmentObject var appState: AppState
-    @State private var selection: Tab = .dashboard
+    @State private var selection: Tab = .clean
 
     enum Tab: String, CaseIterable, Identifiable {
-        case dashboard, clean, analyze, uninstall, purge, status, settings
+        case clean, analyze, uninstall, purge, settings
         var id: String { rawValue }
         var title: String {
             switch self {
-            case .dashboard: return "Dashboard"
             case .clean: return "Clean"
             case .analyze: return "Analyze"
             case .uninstall: return "Uninstall"
             case .purge: return "Project Purge"
-            case .status: return "Status"
             case .settings: return "Settings"
             }
         }
         var icon: String {
             switch self {
-            case .dashboard: return "gauge.with.dots.needle.50percent"
             case .clean: return "sparkles"
             case .analyze: return "chart.pie.fill"
             case .uninstall: return "trash.fill"
             case .purge: return "shippingbox.fill"
-            case .status: return "waveform.path.ecg"
             case .settings: return "gearshape.fill"
             }
         }
     }
 
     var body: some View {
-        NavigationSplitView {
-            List(Tab.allCases, selection: $selection) { tab in
-                Label(tab.title, systemImage: tab.icon).tag(tab)
+        HStack(spacing: 0) {
+            Sidebar(selection: $selection)
+                .overlay(alignment: .trailing) {
+                    Rectangle().fill(Color.white.opacity(0.06)).frame(width: 1)
+                }
+            VStack(spacing: 0) {
+                HeaderBar()
+                Group {
+                    switch selection {
+                    case .clean: CleanView()
+                    case .analyze: AnalyzeView()
+                    case .uninstall: UninstallView()
+                    case .purge: PurgeView()
+                    case .settings: SettingsView()
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                FooterBar()
             }
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200, max: 240)
-        } detail: {
-            switch selection {
-            case .dashboard: DashboardView()
-            case .clean: CleanView()
-            case .analyze: AnalyzeView()
-            case .uninstall: UninstallView()
-            case .purge: PurgeView()
-            case .status: StatusView()
-            case .settings: SettingsView()
-            }
+            .background(Color(red: 0.10, green: 0.11, blue: 0.12))
         }
     }
 }

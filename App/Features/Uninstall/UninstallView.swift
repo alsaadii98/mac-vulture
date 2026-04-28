@@ -72,7 +72,6 @@ struct UninstallView: View {
                 .frame(minWidth: 320, idealWidth: 360)
             detailPane
         }
-        .navigationTitle("Uninstaller")
         .task { await vm.load() }
     }
 
@@ -93,9 +92,10 @@ struct UninstallView: View {
                     }
                 }
             )) { app in
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(app.name).fontWeight(.medium)
+                HStack(spacing: 10) {
+                    AppIconView(path: app.appPath, size: 32)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(app.name).fontWeight(.medium).lineLimit(1)
                         Text(app.bundleID).font(.caption).foregroundStyle(.secondary).lineLimit(1)
                     }
                     Spacer()
@@ -116,18 +116,22 @@ struct UninstallView: View {
     private var detailPane: some View {
         if let app = vm.selected {
             VStack(alignment: .leading, spacing: 0) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(app.name).font(.title2.bold())
-                    Text(app.bundleID).font(.callout.monospaced()).foregroundStyle(.secondary)
-                    HStack(spacing: 12) {
-                        Label(app.version, systemImage: "tag").font(.caption)
-                        Label(ByteCountFormatter.string(fromByteCount: app.sizeBytes, countStyle: .file),
-                              systemImage: "internaldrive").font(.caption)
-                        if app.isRunning {
-                            Label("Running", systemImage: "exclamationmark.triangle.fill")
-                                .font(.caption).foregroundStyle(.orange)
+                HStack(alignment: .top, spacing: 14) {
+                    AppIconView(path: app.appPath, size: 64)
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(app.name).font(.title2.bold())
+                        Text(app.bundleID).font(.callout.monospaced()).foregroundStyle(.secondary)
+                        HStack(spacing: 12) {
+                            Label(app.version, systemImage: "tag").font(.caption)
+                            Label(ByteCountFormatter.string(fromByteCount: app.sizeBytes, countStyle: .file),
+                                  systemImage: "internaldrive").font(.caption)
+                            if app.isRunning {
+                                Label("Running", systemImage: "exclamationmark.triangle.fill")
+                                    .font(.caption).foregroundStyle(.orange)
+                            }
                         }
                     }
+                    Spacer()
                 }
                 .padding()
                 Divider()
