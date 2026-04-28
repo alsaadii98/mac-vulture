@@ -29,7 +29,7 @@ struct RootView: View {
     @State private var selection: Tab = .dashboard
 
     enum Tab: String, CaseIterable, Identifiable {
-        case dashboard, clean, analyze, uninstall, status, settings
+        case dashboard, clean, analyze, uninstall, purge, status, settings
         var id: String { rawValue }
         var title: String {
             switch self {
@@ -37,6 +37,7 @@ struct RootView: View {
             case .clean: return "Clean"
             case .analyze: return "Analyze"
             case .uninstall: return "Uninstall"
+            case .purge: return "Project Purge"
             case .status: return "Status"
             case .settings: return "Settings"
             }
@@ -47,6 +48,7 @@ struct RootView: View {
             case .clean: return "sparkles"
             case .analyze: return "chart.pie.fill"
             case .uninstall: return "trash.fill"
+            case .purge: return "shippingbox.fill"
             case .status: return "waveform.path.ecg"
             case .settings: return "gearshape.fill"
             }
@@ -65,6 +67,7 @@ struct RootView: View {
             case .clean: CleanView()
             case .analyze: AnalyzeView()
             case .uninstall: UninstallView()
+            case .purge: PurgeView()
             case .status: StatusView()
             case .settings: SettingsView()
             }

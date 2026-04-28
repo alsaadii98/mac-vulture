@@ -11,6 +11,7 @@
 		44E172654D1C0759BCF4F48E /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */; };
 		54DED472B134BCF8975E29E5 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43113BD3E9AECD70FDFC62 /* MenuBarView.swift */; };
 		69256A4B91E0E9683A76AAFE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3E01674C010F0D2754BA4 /* AppState.swift */; };
+		6E4CCECAB3894CAE33D54A47 /* PurgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF2E38877FD9AF9ED82B1AA /* PurgeView.swift */; };
 		93EDE63C0D72EAAB17A1FAEE /* MacVultureCore in Frameworks */ = {isa = PBXBuildFile; productRef = 91D555AD1C57EB5C8BE9DE64 /* MacVultureCore */; };
 		942EBE18BC3830758755253D /* CleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5AAB713F0CEBCE3B0EDD4 /* CleanView.swift */; };
 		9BBCD9AD1204542535D474B6 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */; };
@@ -31,6 +32,7 @@
 		9006F23A8BA60135DE3D42DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
 		DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		DCF2E38877FD9AF9ED82B1AA /* PurgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurgeView.swift; sourceTree = "<group>"; };
 		E1D7F1FB7EF9CAB710D2278A /* MacVultureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVultureApp.swift; sourceTree = "<group>"; };
 		E1F3E01674C010F0D2754BA4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E4B06E4C84121F98E09B86BB /* mac-vulture */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "mac-vulture"; path = .; sourceTree = SOURCE_ROOT; };
@@ -65,6 +67,14 @@
 			path = Analyze;
 			sourceTree = "<group>";
 		};
+		2364B09D79EFE60750BC6236 /* Purge */ = {
+			isa = PBXGroup;
+			children = (
+				DCF2E38877FD9AF9ED82B1AA /* PurgeView.swift */,
+			);
+			path = Purge;
+			sourceTree = "<group>";
+		};
 		47C33775AA3E4322C8C34A14 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 				A8C63AB07B85498FC2C537F4 /* Clean */,
 				C88ED6C8B4E13E0B4CEBA6F2 /* Dashboard */,
 				9145A5A772EFBF201D07228D /* MenuBar */,
+				2364B09D79EFE60750BC6236 /* Purge */,
 				0417909B9408E550AD7E9CEA /* Settings */,
 				F359CD48F10D5B08C5FC5690 /* Status */,
 				B9D99E15E6ACA580BB8A6D54 /* Uninstall */,
@@ -246,6 +257,7 @@
 				B2691937863E5B1D8D820D4F /* MacVultureApp.swift in Sources */,
 				54DED472B134BCF8975E29E5 /* MenuBarView.swift in Sources */,
 				BA7F79D06DF922FA5151C2C6 /* Placeholder.swift in Sources */,
+				6E4CCECAB3894CAE33D54A47 /* PurgeView.swift in Sources */,
 				A0E2561F116817757340DD71 /* SettingsView.swift in Sources */,
 				EDEABC6CB8C0F3C79D8A0916 /* StatusView.swift in Sources */,
 				3D0C23E1D61EB3B6C6AAD860 /* UninstallView.swift in Sources */,

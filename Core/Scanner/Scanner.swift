@@ -40,6 +40,7 @@ public struct GlobScanner: Scanner {
                         for url in urls {
                             let path = url.path
                             if whitelist.contains(path) { continue }
+                            if ServiceWorkerProtection.isProtected(path) { continue }
                             group.addTask {
                                 if Task.isCancelled { return nil }
                                 let size = (try? Sizing.sizeOf(path: path)) ?? 0
