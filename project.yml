@@ -1,0 +1,41 @@
+name: MacVulture
+options:
+  bundleIdPrefix: app.macvulture
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_HARDENED_RUNTIME: YES
+    SWIFT_STRICT_CONCURRENCY: complete
+    OTHER_SWIFT_FLAGS: "-warnings-as-errors"
+packages:
+  MacVultureCore:
+    path: .
+targets:
+  MacVulture:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: App
+    resources:
+      - path: App/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.macvulture.MacVulture
+        PRODUCT_NAME: "Mac Vulture"
+        INFOPLIST_FILE: packaging/Info.plist
+        CODE_SIGN_ENTITLEMENTS: packaging/entitlements.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        MARKETING_VERSION: "0.2.0"
+        CURRENT_PROJECT_VERSION: "1"
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+    dependencies:
+      - package: MacVultureCore
+        product: MacVultureCore

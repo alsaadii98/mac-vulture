@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D0C23E1D61EB3B6C6AAD860 /* UninstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17670F6F2B73E34A62B9FFB7 /* UninstallView.swift */; };
+		44E172654D1C0759BCF4F48E /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */; };
+		54DED472B134BCF8975E29E5 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B43113BD3E9AECD70FDFC62 /* MenuBarView.swift */; };
+		69256A4B91E0E9683A76AAFE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3E01674C010F0D2754BA4 /* AppState.swift */; };
+		93EDE63C0D72EAAB17A1FAEE /* MacVultureCore in Frameworks */ = {isa = PBXBuildFile; productRef = 91D555AD1C57EB5C8BE9DE64 /* MacVultureCore */; };
+		942EBE18BC3830758755253D /* CleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5AAB713F0CEBCE3B0EDD4 /* CleanView.swift */; };
+		9BBCD9AD1204542535D474B6 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */; };
+		A0E2561F116817757340DD71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9006F23A8BA60135DE3D42DC /* SettingsView.swift */; };
+		B2691937863E5B1D8D820D4F /* MacVultureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7F1FB7EF9CAB710D2278A /* MacVultureApp.swift */; };
+		BA7F79D06DF922FA5151C2C6 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4835B563EA5278CD093FBBAD /* Placeholder.swift */; };
+		EADF02431542EA13EE55D6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F021287DD82A64B002324A /* Assets.xcassets */; };
+		EDEABC6CB8C0F3C79D8A0916 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDB1F4A84AE1937A171E18 /* StatusView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01E5AAB713F0CEBCE3B0EDD4 /* CleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanView.swift; sourceTree = "<group>"; };
+		0B43113BD3E9AECD70FDFC62 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		17670F6F2B73E34A62B9FFB7 /* UninstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallView.swift; sourceTree = "<group>"; };
+		4835B563EA5278CD093FBBAD /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		61F021287DD82A64B002324A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		792832E31F430F0A847987B4 /* MacVulture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacVulture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9006F23A8BA60135DE3D42DC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
+		DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		E1D7F1FB7EF9CAB710D2278A /* MacVultureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVultureApp.swift; sourceTree = "<group>"; };
+		E1F3E01674C010F0D2754BA4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E4B06E4C84121F98E09B86BB /* mac-vulture */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "mac-vulture"; path = .; sourceTree = SOURCE_ROOT; };
+		F5CDB1F4A84AE1937A171E18 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C083558AD09A023ABAF9F242 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93EDE63C0D72EAAB17A1FAEE /* MacVultureCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0417909B9408E550AD7E9CEA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9006F23A8BA60135DE3D42DC /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		064CC72B7C05084014917915 /* Analyze */ = {
+			isa = PBXGroup;
+			children = (
+				CC255A798B1F6A0CB5118F33 /* AnalyzeView.swift */,
+			);
+			path = Analyze;
+			sourceTree = "<group>";
+		};
+		47C33775AA3E4322C8C34A14 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				064CC72B7C05084014917915 /* Analyze */,
+				A8C63AB07B85498FC2C537F4 /* Clean */,
+				C88ED6C8B4E13E0B4CEBA6F2 /* Dashboard */,
+				9145A5A772EFBF201D07228D /* MenuBar */,
+				0417909B9408E550AD7E9CEA /* Settings */,
+				F359CD48F10D5B08C5FC5690 /* Status */,
+				B9D99E15E6ACA580BB8A6D54 /* Uninstall */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6447814494BD80A3DABBCEDF = {
+			isa = PBXGroup;
+			children = (
+				D4DC6EF810BB319893DD5617 /* App */,
+				E7DD7EA94CF425128496BCAF /* Packages */,
+				8C915813C47E7423A5EEF2EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C915813C47E7423A5EEF2EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				792832E31F430F0A847987B4 /* MacVulture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9145A5A772EFBF201D07228D /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				0B43113BD3E9AECD70FDFC62 /* MenuBarView.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		A8C63AB07B85498FC2C537F4 /* Clean */ = {
+			isa = PBXGroup;
+			children = (
+				01E5AAB713F0CEBCE3B0EDD4 /* CleanView.swift */,
+			);
+			path = Clean;
+			sourceTree = "<group>";
+		};
+		B9D99E15E6ACA580BB8A6D54 /* Uninstall */ = {
+			isa = PBXGroup;
+			children = (
+				17670F6F2B73E34A62B9FFB7 /* UninstallView.swift */,
+			);
+			path = Uninstall;
+			sourceTree = "<group>";
+		};
+		C88ED6C8B4E13E0B4CEBA6F2 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DAFA940D0E14DA8CFF4E529A /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		D4DC6EF810BB319893DD5617 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E1F3E01674C010F0D2754BA4 /* AppState.swift */,
+				61F021287DD82A64B002324A /* Assets.xcassets */,
+				E1D7F1FB7EF9CAB710D2278A /* MacVultureApp.swift */,
+				DE420D9D177F378BA88E6ED9 /* Components */,
+				47C33775AA3E4322C8C34A14 /* Features */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DE420D9D177F378BA88E6ED9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4835B563EA5278CD093FBBAD /* Placeholder.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E7DD7EA94CF425128496BCAF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E4B06E4C84121F98E09B86BB /* mac-vulture */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		F359CD48F10D5B08C5FC5690 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				F5CDB1F4A84AE1937A171E18 /* StatusView.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D6A8E0879F4EE1C051340E3 /* MacVulture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 904FED279EB6971F4651548E /* Build configuration list for PBXNativeTarget "MacVulture" */;
+			buildPhases = (
+				92DAA1213CCB5E828C816203 /* Sources */,
+				8DBE436EC37E641D35720195 /* Resources */,
+				C083558AD09A023ABAF9F242 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacVulture;
+			packageProductDependencies = (
+				91D555AD1C57EB5C8BE9DE64 /* MacVultureCore */,
+			);
+			productName = MacVulture;
+			productReference = 792832E31F430F0A847987B4 /* MacVulture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AD615433E5173C82597386E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5D6A8E0879F4EE1C051340E3 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = D1F4A652D98B012A651A30B1 /* Build configuration list for PBXProject "MacVulture" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6447814494BD80A3DABBCEDF;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2C5FC08AAADAD8C5226F0543 /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8C915813C47E7423A5EEF2EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D6A8E0879F4EE1C051340E3 /* MacVulture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DBE436EC37E641D35720195 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EADF02431542EA13EE55D6ED /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92DAA1213CCB5E828C816203 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E172654D1C0759BCF4F48E /* AnalyzeView.swift in Sources */,
+				69256A4B91E0E9683A76AAFE /* AppState.swift in Sources */,
+				942EBE18BC3830758755253D /* CleanView.swift in Sources */,
+				9BBCD9AD1204542535D474B6 /* DashboardView.swift in Sources */,
+				B2691937863E5B1D8D820D4F /* MacVultureApp.swift in Sources */,
+				54DED472B134BCF8975E29E5 /* MenuBarView.swift in Sources */,
+				BA7F79D06DF922FA5151C2C6 /* Placeholder.swift in Sources */,
+				A0E2561F116817757340DD71 /* SettingsView.swift in Sources */,
+				EDEABC6CB8C0F3C79D8A0916 /* StatusView.swift in Sources */,
+				3D0C23E1D61EB3B6C6AAD860 /* UninstallView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DCDA37FBD38ED60012B187A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-warnings-as-errors";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+		A8FED9397CB3DE539EF81EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-warnings-as-errors";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		DA6D0602F6DEC57D08F95803 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = packaging/entitlements.plist;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = packaging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.macvulture.MacVulture;
+				PRODUCT_NAME = "Mac Vulture";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FFC01CA3E9C343F38A626342 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = packaging/entitlements.plist;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = packaging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.macvulture.MacVulture;
+				PRODUCT_NAME = "Mac Vulture";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		904FED279EB6971F4651548E /* Build configuration list for PBXNativeTarget "MacVulture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC01CA3E9C343F38A626342 /* Debug */,
+				DA6D0602F6DEC57D08F95803 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D1F4A652D98B012A651A30B1 /* Build configuration list for PBXProject "MacVulture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DCDA37FBD38ED60012B187A /* Debug */,
+				A8FED9397CB3DE539EF81EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		2C5FC08AAADAD8C5226F0543 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91D555AD1C57EB5C8BE9DE64 /* MacVultureCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacVultureCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4AD615433E5173C82597386E /* Project object */;
+}

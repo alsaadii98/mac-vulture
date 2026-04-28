@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "user_caches",
+      "title": "User Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": ["~/Library/Caches/*"],
+      "notes": "General user-level cache directory. Apps regenerate on next launch."
+    },
+    {
+      "id": "user_logs",
+      "title": "User Logs",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": ["~/Library/Logs/*"]
+    },
+    {
+      "id": "trash",
+      "title": "Trash",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": ["~/.Trash/*"]
+    },
+    {
+      "id": "recents",
+      "title": "Recent Items",
+      "scope": "user",
+      "risk": "medium",
+      "running_app_check": false,
+      "globs": [
+        "~/Library/Application Support/com.apple.sharedfilelist/*.sfl*",
+        "~/Library/Preferences/com.apple.recentitems.plist"
+      ],
+      "notes": "Removes Recent Items in app menus and Finder."
+    },
+    {
+      "id": "partial_downloads",
+      "title": "Partial Downloads",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/Downloads/*.download",
+        "~/Downloads/*.crdownload",
+        "~/Downloads/*.part"
+      ]
+    },
+    {
+      "id": "mail_downloads",
+      "title": "Mail Downloads",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/Library/Mail Downloads/*",
+        "~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/*"
+      ]
+    },
+    {
+      "id": "dev_node",
+      "title": "Node / JS Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/.npm/_cacache",
+        "~/.npm/_npx",
+        "~/.npm/_logs",
+        "~/.npm/_prebuilds",
+        "~/Library/pnpm/store",
+        "~/.bun/install/cache",
+        "~/.yarn/cache",
+        "~/Library/Caches/Yarn",
+        "~/.tnpm/_cacache",
+        "~/.tnpm/_logs"
+      ]
+    },
+    {
+      "id": "dev_python",
+      "title": "Python / ML Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/Library/Caches/pip",
+        "~/.pyenv/cache",
+        "~/.cache/poetry",
+        "~/.cache/uv",
+        "~/.cache/ruff",
+        "~/.cache/mypy",
+        "~/.pytest_cache",
+        "~/.jupyter/runtime",
+        "~/.cache/huggingface",
+        "~/.cache/torch",
+        "~/.cache/tensorflow",
+        "~/.conda/pkgs",
+        "~/anaconda3/pkgs",
+        "~/.cache/wandb"
+      ]
+    },
+    {
+      "id": "dev_rust",
+      "title": "Rust Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/.cargo/registry/cache",
+        "~/.cargo/git",
+        "~/.rustup/downloads"
+      ]
+    },
+    {
+      "id": "dev_frontend",
+      "title": "Frontend Build Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/.cache/typescript",
+        "~/.cache/electron",
+        "~/.cache/node-gyp",
+        "~/.node-gyp",
+        "~/.turbo/cache",
+        "~/.vite/cache",
+        "~/.cache/vite",
+        "~/.cache/webpack",
+        "~/.parcel-cache",
+        "~/.cache/eslint",
+        "~/.cache/prettier"
+      ]
+    },
+    {
+      "id": "dev_cloud",
+      "title": "Cloud CLI Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": [
+        "~/.kube/cache",
+        "~/.local/share/containers/storage/tmp",
+        "~/.aws/cli/cache",
+        "~/.config/gcloud/logs",
+        "~/.azure/logs"
+      ]
+    },
+    {
+      "id": "dev_docker",
+      "title": "Docker Build Cache",
+      "scope": "user",
+      "risk": "medium",
+      "running_app_check": true,
+      "globs": ["~/.docker/buildx/cache"],
+      "notes": "Quit Docker Desktop before cleaning."
+    },
+    {
+      "id": "xcode_derived",
+      "title": "Xcode DerivedData",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": true,
+      "globs": ["~/Library/Developer/Xcode/DerivedData/*"],
+      "notes": "Forces re-index on next build. Quit Xcode first."
+    },
+    {
+      "id": "xcode_archives",
+      "title": "Xcode Archives",
+      "scope": "user",
+      "risk": "medium",
+      "running_app_check": false,
+      "globs": ["~/Library/Developer/Xcode/Archives/*"],
+      "notes": "Contains shipped builds — review before deletion."
+    },
+    {
+      "id": "xcode_caches",
+      "title": "Xcode Caches",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": true,
+      "globs": [
+        "~/Library/Caches/com.apple.dt.Xcode/*",
+        "~/Library/Developer/Xcode/Products/*",
+        "~/Library/Developer/Xcode/DocumentationCache/*",
+        "~/Library/Developer/Xcode/DocumentationIndex/*"
+      ]
+    },
+    {
+      "id": "xcode_simulator",
+      "title": "Simulator Caches & Logs",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": true,
+      "globs": [
+        "~/Library/Developer/CoreSimulator/Caches/*",
+        "~/Library/Developer/CoreSimulator/Devices/*/data/tmp/*",
+        "~/Library/Logs/CoreSimulator/*",
+        "~/Library/Developer/Xcode/iOS Device Logs/*",
+        "~/Library/Developer/Xcode/watchOS Device Logs/*"
+      ]
+    },
+    {
+      "id": "browser_caches",
+      "title": "Browser Caches",
+      "scope": "user",
+      "risk": "medium",
+      "running_app_check": true,
+      "globs": [
+        "~/Library/Caches/com.apple.Safari",
+        "~/Library/Caches/Google/Chrome",
+        "~/Library/Caches/Firefox",
+        "~/Library/Caches/com.microsoft.edgemac",
+        "~/Library/Caches/com.brave.Browser",
+        "~/Library/Caches/com.vivaldi.Vivaldi",
+        "~/Library/Caches/com.operasoftware.Opera",
+        "~/Library/Caches/company.thebrowser.Browser"
+      ],
+      "notes": "Service Worker entries for protected offline domains are filtered out at scan time."
+    },
+    {
+      "id": "app_caches",
+      "title": "App Caches",
+      "scope": "user",
+      "risk": "medium",
+      "running_app_check": true,
+      "globs": [
+        "~/Library/Caches/com.tinyspeck.slackmacgap",
+        "~/Library/Caches/com.hnc.Discord",
+        "~/Library/Caches/us.zoom.xos",
+        "~/Library/Caches/com.spotify.client/Data",
+        "~/Library/Application Support/Spotify/PersistentCache",
+        "~/Library/Caches/com.microsoft.VSCode",
+        "~/Library/Caches/com.sublimetext.4",
+        "~/Library/Caches/dev.zed.Zed",
+        "~/Library/Caches/com.figma.Desktop",
+        "~/Library/Caches/notion.id",
+        "~/Library/Caches/md.obsidian",
+        "~/Library/Caches/com.raycast.macos"
+      ]
+    },
+    {
+      "id": "homebrew_cache",
+      "title": "Homebrew Cache",
+      "scope": "user",
+      "risk": "low",
+      "running_app_check": false,
+      "globs": ["~/Library/Caches/Homebrew/*", "~/Library/Caches/Homebrew/downloads/*"],
+      "notes": "Run `brew cleanup` for orphaned dependencies (handled by separate action)."
+    },
+    {
+      "id": "orphaned_app_data",
+      "title": "Orphaned App Data",
+      "scope": "user",
+      "risk": "medium",
+      "running_app_check": false,
+      "globs": [
+        "~/Library/Application Support/*",
+        "~/Library/Containers/*",
+        "~/Library/Group Containers/*",
+        "~/Library/Preferences/*.plist"
+      ],
+      "notes": "Scanner cross-checks bundle id against installed apps; only orphans are returned."
+    },
+    {
+      "id": "system_caches_v1_1",
+      "title": "System Caches (requires admin)",
+      "scope": "system",
+      "risk": "high",
+      "running_app_check": false,
+      "globs": [
+        "/Library/Caches/*",
+        "/private/tmp/*",
+        "/private/var/tmp/*",
+        "/Library/Logs/DiagnosticReports/*",
+        "/private/var/log/*",
+        "/Library/Logs/Adobe/*",
+        "/Library/Updates/*"
+      ],
+      "notes": "v1.1 only — gated behind privileged helper."
+    }
+  ]
+}
